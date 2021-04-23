@@ -1,0 +1,62 @@
+Quello dei Cypherpunk è un movimento “cripto-anarchico” che nasce negli anni ’80 ed ha come obiettivo il cambiamento sociale e politico attraverso un uso intensivo 
+della crittografia informatica.
+
+Gli esempi più famosi di attivismo Cypherpunk sono:
+
+Wikileaks, il sito di Julian Assange in cui vengono pubblicati documenti coperti da segreto di Stato, militare, industriale e bancario. Documenti considerati 
+“scomodi” per qualcuno e violati dai Cypherpunks con tecniche crittografiche;
+
+Satoshi Nakamoto, lo pseudonimo dietro al quale si nasconde l’ideatore e creatore di bitcoin, un sistema monetario alternativo a quello bancario reso possibile 
+grazie all’impiego della crittografia.
+
+Di seguito potete trovare un riassunto in italiano del manifesto cypherpunk:
+
+Questo è un riassunto tradotto del loro manifesto:
+
+“L’oggetto della privacy sono quelle informazioni riservate che un individuo desidera poter condividere ma solo con una ristretta cerchia di persone 
+da Lui selezionata.
+
+Per secoli le persone hanno potuto difendere la propria privacy con sussurri, buste e porte chiuse, strette di mano segrete, e corrieri.
+
+In una società che si apre all’era digitale questo diritto è fortemente minacciato perché i messaggi inviati elettronicamente (email, forum, chat…) 
+sono facilmente duplicabili e divulgabili all’esterno della “cerchia” senza il consenso dell’autore.
+
+Siccome noi desideriamo ed incentiviamo la libertà di espressione e non vogliamo rinunciare alla privacy, 
+la soluzione è quella di poter divulgare solo le informazioni strettamente necessarie, e nella maggior parte dei casi la propria identità non è rilevante.
+
+Quando ad esempio utilizzo un provider di posta elettronica per inviare e ricevere messaggi, al provider deve interessare solo se i messaggi sono arrivati a 
+destinazione e se ha ricevuto il compenso per il servizio offerto; chi siano i mittenti ed i destinatari e cosa si siano scritti non sono informazioni che 
+servono a svolgere meglio il suo lavoro. Lo stesso vale per un fornitore/intermediario di servizi finanziari.
+
+Pertanto in una società aperta, il diritto alla privacy richiede sistemi di comunicazione “crittografati” che garantiscono l’anonimato.
+
+Per tutto ciò non ci si può aspettare l’aiuto dei Governi o delle grandi organizzazioni perché a loro, di fatto, interessa sapere cosa pensiamo.
+
+Noi Cypherpunks siamo attivi nella costruzione di sistemi informatici anonimi grazie all’impiego della crittografia, affinché lo scambio di informazioni 
+e di denaro resti riservato. Noi scriviamo i codici software e li divulghiamo gratuitamente affinché siano disponibili ed adottati dal maggior numero di persone.
+
+Questa sarà la nostra forza: un sistema largamente diffuso ed adottato che non può essere arrestato.
+
+Nel mentre noi chiediamo a te, collega Cypherpunk, di darci il tuo contributo, o a te utente di dirci di cosa hai bisogno e di aiutarci a divulgare i nostri sistemi
+in tutto il mondo. Avanti tutti insieme”.
+
+Eric Hughes
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Considerazioni:
+
+Uno dei progetti per cui Eric Hughes ha ricevuto più alto riconoscimento, è stata la creazione di Primer remailer anonimo da Internet. 
+Eric ha creato questo servizio insieme a Hal Finney, in 1992.
+
+Un remailer, è un servizio che riceve e inoltra messaggi di posta elettronica che funge da gateway. La funzione dei remailer, è quella di rendere anonimo 
+il mittente. Per fare ciò, dopo aver ricevuto un'e-mail, il remailer ha prima rimosso le informazioni del mittente. Subito dopo, invece, includeva una 
+serie di dati casuali, dopodiché veniva inoltrato al destinatario finale. In altre parole, il messaggio è stato distribuito ed ha anche mantenuto la privacy e 
+l'anonimato del mittente dell'email originale. Questo sviluppo ha segnato la nascita del primo tipo di remailer, il cosiddetto remailer cypherpunk.
+
+La creazione di questo tipo di servizio, fatta pubblicare informazioni sensibili sarebbe meno rischioso. Era appena sufficiente inviarlo tramite e-mail a 
+una mailing list accessibile pubblicamente. Poiché la posta non poteva essere ricondotta al mittente, i remailer erano lo strumento ideale per l'attivismo sociale. 
+Grazie a loro, gli abusi di potere potrebbero essere resi visibili senza timore di rappresaglie. Sono stati utilizzati per dare accesso pubblico ai dati che 
+dovrebbero essere, come rivelare segreti governativi. 
+
+Senza dubbio, aggirare i meccanismi di censura è fondamentale per preservare diritti come la libertà di espressione e l'accesso alle informazioni.
