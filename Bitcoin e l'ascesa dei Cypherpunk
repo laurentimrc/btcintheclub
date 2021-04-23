@@ -1,0 +1,291 @@
+Sebbene molte delle innovazioni appaiano recenti, sono basate su decenni di lavoro che hanno portato a questo punto. 
+Tracciando questa storia, possiamo comprendere le motivazioni alla base del movimento che ha generato bitcoin e condividere la sua visione per il futuro.
+
+Dal bitcoin alla blockchain ai registri distribuiti, lo spazio delle criptovalute è in rapida evoluzione, al punto che può essere difficile vedere in quale 
+direzione si sta dirigendo.
+
+Ma non siamo senza indizi. Sebbene molte delle innovazioni nello spazio siano nuove, sono basate su decenni di lavoro che 
+hanno portato a questo punto. Tracciando questa storia, possiamo comprendere le motivazioni alla base del movimento che ha generato bitcoin e condividere l
+a sua visione per il futuro.
+
+Prima degli anni '70, la crittografia era principalmente praticata in segreto da agenzie militari o di spionaggio. Ma le cose sono cambiate quando due 
+pubblicazioni lo hanno portato allo scoperto: la pubblicazione del governo degli Stati Uniti del Data Encryption Standard e il primo lavoro disponibile 
+pubblicamente sulla crittografia a chiave pubblica, " New Directions in Cryptography " del dottor Whitfield Diffie e del dottor Martin Hellman.
+
+Negli anni '80, il dottor David Chaum ha scritto ampiamente su argomenti come denaro digitale anonimo e sistemi di reputazione con pseudonimo, che ha descritto 
+nel suo articolo " Sicurezza senza identificazione : sistemi di transazione per rendere obsoleto il Grande Fratello".
+
+Negli anni successivi, queste idee si fusero in un movimento.
+
+Alla fine del 1992, Eric Hughes, Timothy C May e John Gilmore fondarono un piccolo gruppo che si riuniva mensilmente presso la società di Gilmore Cygnus Solutions 
+nella Bay Area di San Francisco. Il gruppo è stato scherzosamente definito "cypherpunk" come derivazione di "cifrario" e "cyberpunk".
+
+La mailing list di Cypherpunks fu formata più o meno nello stesso periodo e solo pochi mesi dopo Eric Hughes pubblicò " A Cypherpunk's Manifesto ". Scrisse:
+
+“La privacy è necessaria per una società aperta nell'era elettronica. La privacy non è segretezza. Una questione privata è qualcosa che non si vuole che il 
+mondo intero sappia, ma una questione segreta è qualcosa che non si vuole che nessuno sappia. La privacy è il potere di rivelarsi selettivamente al mondo ".
+Va tutto bene, starai pensando, ma non sono un Cypherpunk, non sto facendo niente di sbagliato; Non ho nulla da nascondere. Come ha notato Bruce Schneier, 
+l'argomento "niente da nascondere" deriva da una premessa errata che la privacy consiste nel nascondere un torto.
+
+Ad esempio, è probabile che tu abbia tende alle finestre in modo che le persone non possano vedere nella tua casa. Questo non è perché stai intraprendendo 
+attività illegali o immorali, ma semplicemente perché non desideri preoccuparti del potenziale costo di rivelarti al mondo esterno.
+
+Se stai leggendo questo, hai beneficiato direttamente degli sforzi dei Cypherpunks.
+
+Alcuni importanti Cypherpunk e i loro successi:
+
+Jacob Appelbaum: sviluppatore Tor
+Julian Assange: fondatore di WikiLeaks
+Dr Adam Back: inventore di Hashcash, co-fondatore di Blockstream
+Bram Cohen: creatore di BitTorrent
+Hal Finney: autore principale di PGP 2.0, creatore di Reusable Proof of Work
+Tim Hudson: coautore di SSLeay, il precursore di OpenSSL
+Paul Kocher: coautore di SSL 3.0
+Moxie Marlinspike: fondatore di Open Whisper Systems (sviluppatore di Signal)
+Steven Schear: creatore del concetto di "warrant canary"
+Bruce Schneier: noto autore di sicurezza
+Zooko Wilcox-O'Hearn: sviluppatore DigiCash, fondatore di Zcash
+Philip Zimmermann: creatore di PGP 1.0
+
+Gli anni '90
+Questo decennio ha visto l'ascesa delle Crypto Wars, in cui il governo degli Stati Uniti ha tentato di soffocare la diffusione di una forte crittografia 
+commerciale.
+
+Poiché il mercato della crittografia era quasi interamente militare fino a questo punto, la tecnologia di crittografia è stata inclusa come un elemento di 
+categoria XIII nell'elenco delle munizioni degli Stati Uniti, che aveva regole severe che ne impedivano l '"esportazione".
+
+Questa lunghezza limitata della chiave SSL "compatibile con l'esportazione" a 40 bit, che potrebbe essere interrotta in pochi giorni utilizzando un singolo 
+personal computer.
+
+Le sfide legali dei libertari civili e dei sostenitori della privacy, la diffusa disponibilità di software di crittografia al di fuori degli Stati Uniti e un 
+attacco riuscito di Matt Blaze contro la backdoor proposta dal governo, il Clipper Chip , hanno portato il governo a fare marcia indietro.
+
+
+Nel 1997, il dottor Adam Back ha creato Hashcash , progettato come un meccanismo anti-spam che essenzialmente aggiungerebbe un costo (in termini di tempo e di 
+calcolo) all'invio di e-mail, rendendo così antieconomico lo spam.
+
+Ha immaginato che Hashcash sarebbe stato più facile da usare per le persone rispetto al digicash di Chaum poiché non era necessaria la creazione di un account. 
+Hashcash aveva anche una certa protezione contro la "doppia spesa".
+
+Più tardi, nel 1998, Wei Dai ha pubblicato una proposta per "b-money", un modo pratico per far rispettare gli accordi contrattuali tra attori anonimi. 
+Ha descritto due concetti interessanti che dovrebbero suonare familiari. In primo luogo, un protocollo in cui ogni partecipante mantiene un database separato 
+di quanto denaro appartiene all'utente. In secondo luogo, una variante del primo sistema in cui i conti di chi ha quanti soldi sono tenuti da un sottoinsieme 
+di partecipanti che sono incentivati a rimanere onesti mettendo i loro soldi in gioco.
+
+Bitcoin utilizza il primo concetto mentre parecchie altre criptovalute hanno implementato una variante del secondo concetto, che ora chiamiamo proof of stake.
+
+Gli anni 2000
+
+È chiaro che i Cypherpunks si erano già basati sul lavoro degli altri per decenni, sperimentando e ponendo le strutture di cui avevamo bisogno negli anni '90, 
+ma un punto cruciale è stata la creazione di denaro cypherpunk negli anni 2000.
+
+Nel 2004, Hal Finney ha creato una prova di lavoro riutilizzabile (RPOW), basata sull'hashcash di Back. I RPOW erano token crittografici unici che potevano essere 
+utilizzati solo una volta, proprio come gli output di transazioni non spesi in bitcoin. Tuttavia, la convalida e la protezione contro la doppia spesa erano ancora 
+eseguite da un server centrale.
+
+Nick Szabo ha pubblicato una proposta per "bit gold" nel 2005, un oggetto da collezione digitale basato sulla proposta RPOW di Finney. Tuttavia, Szabo non ha 
+proposto un meccanismo per limitare le unità totali di bit gold, ma piuttosto prevedeva che le unità sarebbero state valutate in modo diverso in base alla quantità
+di lavoro computazionale eseguito per crearle.
+
+Infine, nel 2008, Satoshi Nakamoto, uno pseudonimo per uno o più individui ancora non identificati, ha pubblicato il white paper bitcoin , 
+citando sia hashcash che b-money. In effetti, Satoshi ha inviato un'e-mail direttamente a Wei Dai e ha detto di aver saputo del b-money dal dottor Back.
+
+Satoshi ha dedicato alla privacy una sezione del white paper di bitcoin , che recita:
+
+“Il modello bancario tradizionale raggiunge un livello di privacy limitando l'accesso alle informazioni alle parti coinvolte e alla terza parte fidata. 
+La necessità di annunciare pubblicamente tutte le transazioni preclude questo metodo, ma la privacy può comunque essere mantenuta interrompendo il flusso di 
+informazioni in un altro luogo: mantenendo anonime le chiavi pubbliche. Il pubblico può vedere che qualcuno sta inviando un importo a qualcun altro, 
+ma senza informazioni che colleghino la transazione a nessuno. Questo è simile al livello di informazione rilasciato dalle borse, dove il tempo e la dimensione 
+delle singole operazioni, il "nastro", sono resi pubblici, ma senza dire chi fossero le parti ".
+
+Il modello di privacy di Bitcoin, dal white paper di Bitcoin
+Satoshi Nakamoto ha innescato una valanga di progresso con un sistema di lavoro che le persone potevano usare, estendere e biforcare.
+
+Bitcoin ha rafforzato l'intero movimento cypherpunk consentendo a organizzazioni come WikiLeaks di continuare a operare tramite donazioni di bitcoin, anche dopo 
+che il sistema finanziario tradizionale le aveva interrotte.
+
+La lotta per la privacy
+Tuttavia, poiché l'ecosistema bitcoin è cresciuto negli ultimi anni, le preoccupazioni sulla privacy sembrano essere state messe in secondo piano.
+Molti dei primi utenti di bitcoin presumevano che il sistema avrebbe dato loro il completo anonimato, ma abbiamo imparato il contrario poiché varie forze 
+dell'ordine hanno rivelato di essere in grado di deanonimizzare gli utenti di bitcoin durante le indagini.
+
+L' Open Bitcoin Privacy Project ha raccolto alcuni dei problemi per quanto riguarda l'educazione degli utenti sulla privacy e la raccomandazione delle migliori 
+pratiche per i servizi bitcoin. Il gruppo sta sviluppando un modello di minaccia per gli attacchi alla privacy del portafoglio bitcoin.
+
+Il loro modello attualmente suddivide gli aggressori in diverse categorie:
+
+Blockchain Observers : collega diverse transazioni insieme alla stessa identità osservando modelli nel flusso di valore.
+Osservatori di rete : collegano tra loro transazioni e indirizzi diversi osservando l'attività sulla rete peer to peer.
+Avversari fisici : prova a trovare dati su un dispositivo wallet per manometterli o eseguire analisi su di essi.
+Partecipanti alla transazione: crea transazioni che li aiutano a tracciare e rimuovere l'anonimato sulla blockchain.
+Fornitori di portafogli : possono richiedere informazioni di identificazione personale agli utenti e quindi osservare le loro transazioni.
+Jonas Nick di Blockstream ha anche svolto una discreta quantità di ricerche sui problemi di privacy per gli utenti di bitcoin.
+
+Uno dei maggiori problemi di privacy in bitcoin proviene dagli osservatori blockchain: poiché ogni transazione sulla rete è pubblica a tempo indeterminato, 
+chiunque nel presente e nel futuro può essere un potenziale avversario.
+
+Di conseguenza, una delle migliori pratiche consigliate più vecchie è quella di non riutilizzare mai un indirizzo bitcoin.
+Satoshi ne ha persino preso nota nel white paper di bitcoin:
+
+“Come firewall aggiuntivo, dovrebbe essere utilizzata una nuova coppia di chiavi per ogni transazione per evitare che siano collegate a un proprietario comune. 
+Alcuni collegamenti sono ancora inevitabili con transazioni multi-input, che rivelano necessariamente che i loro input erano di proprietà dello stesso proprietario. 
+Il rischio è che se il proprietario di una chiave viene rivelato, il collegamento potrebbe rivelare altre transazioni che appartenevano allo stesso proprietario."
+
+Recenti innovazioni Cypherpunk
+Sono stati sviluppati una moltitudine di sistemi e best practice per aumentare la privacy degli utenti di bitcoin. Il dott.Pieter Wuille ha creato BIP32, 
+portafogli deterministici gerarchici (HD), che rende molto più semplice per i portafogli bitcoin gestire gli indirizzi.
+Sebbene la privacy non fosse la motivazione principale di Wuille, i portafogli HD rendono più facile evitare il riutilizzo degli indirizzi perché la tecnologia può
+facilmente generare nuovi indirizzi mentre le transazioni fluiscono dentro e fuori dal portafoglio.
+Gli indirizzi Elliptic Curve Diffie-Hellman-Merkle (ECDHM) sono schemi di indirizzi bitcoin che aumentano la privacy. Gli indirizzi ECDHM possono essere condivisi 
+pubblicamente e vengono utilizzati da mittenti e destinatari per derivare segretamente indirizzi Bitcoin tradizionali che gli osservatori blockchain non possono 
+prevedere. Il risultato è che gli indirizzi ECDHM possono essere "riutilizzati" senza la perdita di privacy che di solito si verifica con il tradizionale 
+riutilizzo degli indirizzi Bitcoin.
+
+Alcuni esempi di schemi di indirizzi ECDHM includono Stealth Addresses di Peter Todd, codici di pagamento riutilizzabili BIP47 di Justus Ranvier e BIP75 Out of
+Band Address Exchange di Justin Newton e altri.
+
+Il mix di bitcoin è un metodo più laborioso con il quale gli utenti possono aumentare la loro privacy. Il concetto di mescolare monete con altri partecipanti è 
+simile al concetto di "reti di miscelazione" inventato dal dottor Chaum. Sono stati sviluppati diversi algoritmi di miscelazione:
+
+CoinJoin - La proposta originale del co-fondatore di Blockstream Gregory Maxwell per la miscelazione di monete, CoinJoin consente essenzialmente agli utenti di 
+creare una transazione con molti input da più persone e quindi inviare le monete a molti altri output che ripagano alle stesse persone, 'mescolando' così i valori 
+insieme e rendendo difficile dire quali input sono correlati a quali output.
+
+Esempio di una transazione CoinJoin ingenua.
+JoinMarket - Creato dallo sviluppatore Chris Belcher, JoinMarket consente ai possessori di bitcoin di combinare le loro monete tramite CoinJoin con le monete di 
+altri utenti in cambio di una commissione. Utilizza una sorta di contratto intelligente in modo che le tue chiavi private non lascino mai il tuo computer, 
+riducendo così il rischio di perdita. In parole povere, JoinMarket ti consente di migliorare la privacy delle transazioni bitcoin per commissioni basse in modo 
+decentralizzato.
+
+CoinShuffle - Un protocollo di miscelazione decentralizzato sviluppato da un gruppo di ricercatori della Saarland University in Germania, CoinShuffle migliora 
+CoinJoin. Non richiede una terza parte fidata per assemblare le transazioni di miscelazione e quindi non richiede costi di miscelazione aggiuntivi.
+
+CoinSwap - Un altro concetto sviluppato da Maxwell, CoinSwap è sostanzialmente diverso da CoinJoin in quanto utilizza una serie di quattro transazioni multisig 
+(due pagamenti di garanzia, due rilasci di garanzia) per scambiare monete tra due parti in modo affidabile. È molto meno efficiente di CoinJoin ma può 
+potenzialmente offrire una privacy molto maggiore, facilitando anche lo scambio di monete tra diversi blockchain.
+Mentre mescolare equivale a "nascondersi in mezzo alla folla", spesso la folla non è particolarmente numerosa. Il mixaggio dovrebbe essere considerato come un 
+offuscamento piuttosto che un completo anonimato, perché rende difficile per gli osservatori casuali tracciare il flusso di fondi, ma gli osservatori più 
+sofisticati potrebbero comunque essere in grado di deoffuscare le transazioni di mescolamento.
+
+Kristov Atlas (fondatore dell'Open Bitcoin Privacy Project) ha pubblicato le sue scoperte sui punti deboli dei clienti CoinJoin implementati in modo improprio nel 
+2014.
+
+CoinJoin raggruppamento di input e output
+
+Atlas ha notato che anche con uno strumento di analisi abbastanza primitivo, è stato in grado di raggruppare il 69% degli input e il 53% degli output di una 
+singola transazione CoinJoin. Esistono anche criptovalute separate che sono state sviluppate pensando alla privacy.
+
+Un esempio è Dash, progettato da Evan Duffield e Daniel Diaz, che ha una funzione chiamata " Darksend ", una versione migliorata di CoinJoin. 
+I due miglioramenti principali sono le quantità di valore utilizzate e la frequenza di miscelazione.
+
+Il missaggio di Dash utilizza denominazioni comuni di 0.1DASH, 1DASH, 10DASH E 100DASH per rendere molto più difficile il raggruppamento di input e output. 
+In ogni sessione di missaggio, gli utenti inviano le stesse denominazioni di input e output.
+
+Per massimizzare la privacy offerta dal missaggio e rendere più difficili gli attacchi a tempo, Darksend viene eseguito automaticamente a intervalli prestabiliti.
+
+
+Miscelazione DASH. Fonte: white paper DASH
+
+Un'altra criptovaluta incentrata sulla privacy non è nemmeno basata su bitcoin. Il white paper CryptoNote è stato pubblicato nel 2014 da Nicolas van Saberhagen 
+e il concetto è stato implementato in diverse criptovalute come Monero. Le innovazioni principali sono le firme ad anello crittografiche e le chiavi monouso 
+univoche.
+
+Le firme digitali regolari, come quelle utilizzate in bitcoin, coinvolgono una singola coppia di chiavi: una pubblica e una privata. Ciò consente al proprietario 
+di un indirizzo pubblico di dimostrare di possederlo firmando una spesa di fondi con la chiave privata corrispondente.
+
+
+Le firme ad anello sono state proposte per la prima volta nel 2001 dal dottor Adi Shamir e altri, basandosi sullo schema di firme di gruppo introdotto nel 1991 
+dal dottor Chaum ed Eugene van Heyst. Le firme ad anello coinvolgono un gruppo di individui, ciascuno con la propria chiave pubblica e privata.
+
+La "dichiarazione" dimostrata da una firma ad anello è che il firmatario di un determinato messaggio è un membro del gruppo. La principale differenza con i normali
+schemi di firma digitale è che il firmatario necessita di un'unica chiave segreta, ma un verificatore non può stabilire l'identità esatta del firmatario.
+
+Pertanto, se incontri una firma ad anello con le chiavi pubbliche di Alice, Bob e Carol, puoi solo affermare che uno di questi individui era il firmatario, ma 
+non sarai in grado di sapere esattamente a chi appartiene la transazione. Fornisce un altro livello di offuscamento che rende più difficile per gli osservatori 
+blockchain tracciare la proprietà dei pagamenti mentre fluiscono attraverso il sistema.
+
+Abbastanza interessante, le firme ad anello sono state sviluppate specificamente nel contesto del whistleblowing, in quanto consentono la fuga anonima di segreti 
+pur dimostrando che la fonte dei segreti è rispettabile (un individuo che fa parte di un gruppo noto).
+
+Firme ad anello. Fonte: https://cryptonote.org/inside/
+
+CryptoNote è progettato anche per mitigare i rischi associati al riutilizzo delle chiavi e alla traccia da input a output. Ogni indirizzo per un pagamento 
+è una chiave unica, derivata dai dati del mittente e del destinatario. Non appena si utilizza una firma ad anello nel proprio input, 
+si aggiunge maggiore incertezza su quale output è stato appena speso.
+
+Se un osservatore blockchain cerca di disegnare un grafico con gli indirizzi utilizzati, collegandoli tramite le transazioni sulla blockchain, sarà un albero 
+perché nessun indirizzo è stato utilizzato due volte. Il numero di grafici possibili aumenta in modo esponenziale man mano che si aggiungono più transazioni al 
+grafico poiché ogni firma ad anello produce ambiguità sul modo in cui il valore scorreva tra gli indirizzi. Pertanto, non puoi essere certo di quale indirizzo abbia 
+inviato fondi a un altro indirizzo.
+
+A seconda delle dimensioni dell'anello utilizzato per la firma, l'ambiguità per una singola transazione può variare da "uno su due" a "uno su 1.000". 
+Ogni transazione aumenta l'entropia e crea difficoltà aggiuntive per un osservatore blockchain.
+
+Resistenza all'analisi blockchain. Fonte: https://cryptonote.org/inside/
+
+Prossime innovazioni Cypherpunk
+
+Sebbene ci siano ancora molti problemi di privacy per gli utenti di criptovaluta, il futuro è luminoso grazie al lavoro in corso di Cypherpunks. Il prossimo balzo 
+in avanti nella privacy comporterà l'uso di prove a conoscenza zero, che furono proposte per la prima volta nel 1985 al fine di ampliare le potenziali applicazioni 
+dei protocolli crittografici.
+
+Proposto originariamente dal Dr. Nel 2013 come "bitcoin con valore omomorfo", Maxwell ha lavorato su transazioni riservate, che utilizzano prove di intervallo 
+di conoscenza zero per consentire la creazione di transazioni bitcoin in cui i valori sono nascosti a tutti tranne che ai partecipanti alla transazione.
+
+Questo è un grande miglioramento di per sé, ma quando combini Transazioni riservate con CoinJoin, puoi creare un servizio di mixaggio che separa qualsiasi 
+collegamento tra gli input e gli output delle transazioni.
+
+Quando Maxwell presentato Sidechain elementi al meetup di San Francisco Bitcoin Devs, mi ricordo di lui dicendo: “Uno dei più grandi rimpianti detenute dai 
+barba grigia alla IETF è che Internet non è stata costruita con la crittografia come metodo predefinito di trasmissione dei dati.”
+
+Maxwell la pensa chiaramente allo stesso modo riguardo alla privacy in bitcoin e desidera che avessimo Transazioni riservate sin dall'inizio. 
+Abbiamo già visto Blockstream implementare transazioni riservate all'interno della sidechain Liquid per mascherare i trasferimenti tra gli scambi.
+Abbiamo anche visto di recente Maxwell condurre il primo pagamento contingente a conoscenza zero di successo sulla rete bitcoin. 
+
+ZKCP è un protocollo di transazione che consente a un acquirente di acquistare informazioni da un venditore utilizzando bitcoin in modo affidabile. 
+Le informazioni acquistate vengono trasferite solo se viene effettuato il pagamento ed è garantito il trasferimento se viene effettuato il pagamento. 
+L'acquirente e il venditore non devono fidarsi l'uno dell'altro o dipendere dall'arbitrato di una terza parte.
+
+Ho scritto di Zerocoin diversi anni fa e ho notato le sfide tecniche che doveva superare prima che il sistema potesse essere utilizzabile. 
+Da allora, i ricercatori sono riusciti a rendere le prove molto più efficienti e hanno risolto il problema della fiducia con la generazione iniziale dei parametri 
+di sistema. Siamo ora sul punto di vedere la visione di Zerocoin realizzata con il rilascio di Zcash , guidato da Wilcox-O'Hearn.
+
+Zcash offre la totale riservatezza dei pagamenti pur mantenendo una rete decentralizzata utilizzando una blockchain pubblica. 
+Le transazioni Zcash nascondono automaticamente il mittente, il destinatario e il valore di tutte le transazioni sulla blockchain. 
+Solo chi ha la chiave di visualizzazione corretta può vedere il contenuto di una transazione. Poiché i contenuti delle transazioni Zcash sono crittografati e 
+privati, il sistema utilizza un nuovo metodo crittografico per verificare i pagamenti.
+
+Zcash utilizza una costruzione a prova di conoscenza zero chiamata zk-SNARK, sviluppata dal suo team di crittografi esperti. Invece di dimostrare pubblicamente 
+l'autorità di spesa e i valori della transazione, i metadati della transazione vengono crittografati e gli zk-SNARK vengono utilizzati per dimostrare che la 
+transazione è valida. Zcash potrebbe benissimo essere il primo sistema di pagamento digitale che consente un anonimato infallibile.
+
+Mettere il punk in cypherpunk
+
+Nei decenni trascorsi da quando i Cypherpunk hanno intrapreso la loro ricerca, la tecnologia informatica è avanzata al punto in cui individui e gruppi possono 
+comunicare e interagire tra loro in modo totalmente anonimo.
+
+Due persone possono scambiarsi messaggi, condurre affari e negoziare contratti elettronici senza mai conoscere il vero nome o l'identità giuridica dell'altro. 
+È del tutto naturale che i governi cercheranno di rallentare o fermare la diffusione di questa tecnologia, citando preoccupazioni per la sicurezza nazionale, 
+l'uso della tecnologia da parte di criminali e timori di disintegrazione sociale.
+
+I cypherpunks sanno che dobbiamo difendere la nostra privacy se ci aspettiamo di averne. Le persone difendono la loro privacy da secoli con sussurri, oscurità, 
+buste, porte chiuse, strette di mano segrete e corrieri. Prima del XX secolo, la tecnologia non consentiva una forte privacy, ma nemmeno una sorveglianza di massa 
+a prezzi accessibili.
+
+Ora viviamo in un mondo in cui ci si può aspettare la sorveglianza, ma la privacy non lo è, anche se esistono tecnologie per il miglioramento della privacy. 
+Siamo entrati in una fase che molti stanno chiamando Le Crypto guerre 2.0. Sebbene i Cypherpunk siano emersi vittoriosi dalle prime Crypto Wars, non possiamo 
+permetterci di riposare sugli allori. Zooko ha sperimentato il fallimento dei progetti Cypherpunk in passato e avverte che il fallimento è ancora possibile.
+
+I cypherpunks credono che la privacy sia un diritto umano fondamentale, inclusa la privacy dei governi. Comprendono che l'indebolimento della sicurezza di un 
+sistema per qualsiasi motivo, compreso l'accesso da parte di "autorità fidate", rende il sistema insicuro per tutti coloro che lo utilizzano.
+
+I Cypherpunks scrivono il codice. Sanno che qualcuno deve scrivere software per difendere la privacy e quindi si assumono il compito. Pubblicano il loro codice 
+in modo che gli altri Cypherpunk possano imparare da esso, attaccarlo e migliorarlo.
+
+Il loro codice è gratuito per chiunque. Ai Cypherpunk non importa se non approvi il software che scrivono. Sanno che il software non può essere distrutto e che 
+i sistemi ampiamente dispersi non possono essere arrestati.
+
+La mailing list originale di Cypherpunks non esiste più, ma ora ci sono più Cypherpunks che mai. Discutiamo le nostre idee su un'ampia varietà di 
+elenchi di e-mail, chat room e piattaforme di social media. C'è molto lavoro da fare; Sebbene siano stati compiuti grandi progressi nella progettazione e 
+nell'implementazione di sistemi per il miglioramento della privacy, sono ancora lungi dall'essere perfetti ed è ancora troppo difficile per la persona media 
+trarne vantaggio. Ci sono ancora molte battaglie da combattere nelle Crypto Wars; prendete in mano le vostre tastiere e procediamo insieme di buon passo.
