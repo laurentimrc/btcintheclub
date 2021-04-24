@@ -1,0 +1,419 @@
+Se hai letto di bitcoin sulla stampa e hai una certa familiarità con la ricerca accademica nel campo della crittografia, potresti ragionevolmente ottenere 
+la seguente impressione: diversi decenni di ricerca sul denaro digitale, a cominciare da David Chaum, 10 , 12 non ha portato al successo commerciale perché 
+richiedeva un server centralizzato simile a una banca che controllasse il sistema e nessuna banca voleva registrarsi. Poi è arrivato bitcoin, una proposta 
+radicalmente diversa per una criptovaluta decentralizzata che non aveva bisogno delle banche, e il denaro digitale ha finalmente avuto successo. 
+Il suo inventore, il misterioso Satoshi Nakamoto, era un outsider accademico e il bitcoin non ha alcuna somiglianza con le precedenti proposte accademiche.
+
+Questo articolo contesta tale vista mostrando quasi tutti i componenti tecnici bitcoin origine nella letteratura accademica degli anni 1980 e 1990. 
+Questo non per sminuire il risultato di Nakamoto, ma per sottolineare che si trovava sulle spalle dei giganti. 
+In effetti, tracciando le origini delle idee in bitcoin, possiamo concentrarci sul vero salto di intuizione di Nakamoto sul modo specifico e complesso in cui i 
+componenti sottostanti sono messi insieme. Questo aiuta a spiegare perché il bitcoin ha impiegato così tanto tempo per essere inventato. I lettori che hanno già 
+familiarità con il funzionamento di bitcoin possono ottenere una comprensione più profonda da questa presentazione storica. (Per un'introduzione, vedere Bitcoin 
+e criptovaluta Technologies. 36) La storia intellettuale di Bitcoin funge anche da caso di studio che dimostra le relazioni tra il mondo accademico, i ricercatori 
+esterni e i professionisti e offre lezioni su come questi gruppi possono trarre vantaggio gli uni dagli altri.
+
+
+ | Il libro mastro |
+
+Se hai un libro mastro sicuro, il processo per sfruttarlo in un sistema di pagamento digitale è semplice. Ad esempio, se Alice invia a Bob $ 100 tramite PayPal, 
+PayPal addebita $ 100 dall'account di Alice e accredita $ 100 sull'account di Bob. Questo è più o meno ciò che accade nel settore bancario tradizionale, anche se 
+l'assenza di un unico registro condiviso tra le banche complica le cose.
+
+Questa idea di un libro mastro è il punto di partenza per comprendere il bitcoin. È un luogo in cui registrare tutte le transazioni che avvengono nel sistema ed è 
+aperto e considerato attendibile da tutti i partecipanti al sistema. Bitcoin converte questo sistema per registrare i pagamenti in una valuta. Mentre nel settore 
+bancario il saldo di un conto rappresenta denaro che può essere richiesto alla banca, cosa rappresenta un'unità di bitcoin? Per ora, supponi che ciò che viene 
+negoziato abbia un valore intrinsecamente.
+
+Come puoi costruire un libro mastro da utilizzare in un ambiente come Internet in cui i partecipanti potrebbero non fidarsi l'uno dell'altro? 
+Cominciamo con la parte facile: la scelta della struttura dei dati. Ci sono alcune proprietà desiderabili. Il libro mastro dovrebbe essere immutabile o, più 
+precisamente, solo aggiungere : dovresti essere in grado di aggiungere nuove transazioni ma non rimuovere, modificare o riordinare quelle esistenti. 
+Dovrebbe esserci anche un modo per ottenere un riassunto crittografico sinteticodello stato del libro mastro in qualsiasi momento. Un digest è una breve stringa 
+che consente di evitare di archiviare l'intero libro mastro, sapendo che se il libro mastro venisse manomesso in qualche modo, il digest risultante cambierebbe e 
+quindi la manomissione verrebbe rilevata. La ragione di queste proprietà è che, a differenza di una normale struttura di dati archiviata su una singola macchina, 
+il libro mastro è una struttura di dati globale gestita collettivamente da un insieme di partecipanti che non si fidano reciprocamente. Ciò contrasta con un altro 
+approccio alla decentralizzazione dei registri digitali, 7 , 13 , 21 in cui molti partecipanti mantengono i registri locali e spetta all'utente che interroga 
+questo insieme di registri risolvere eventuali conflitti.
+
+ | Timestamp |
+
+La struttura dei dati del registro di Bitcoin è presa in prestito, con modifiche minime, da una serie di articoli di Stuart Haber e Scott 
+Stornetta scritti tra il 1990 e il 1997 (il loro articolo del 1991 aveva un altro coautore, Dave Bayer). 5 , 22 , 23 Lo sappiamo perché lo dice Nakamoto nel suo 
+white paper sui bitcoin. 34Il lavoro di Haber e Stornetta ha affrontato il problema del timestamp documentale, finalizzato alla realizzazione di un servizio 
+"notarile digitale". Per brevetti, contratti commerciali e altri documenti, si potrebbe voler stabilire che il documento è stato creato in un determinato momento 
+e non successivamente. La loro nozione di documento è abbastanza generale e potrebbe essere qualsiasi tipo di dato. Citano, di sfuggita, le transazioni finanziarie 
+come una potenziale applicazione, ma non era il loro obiettivo.
+
+In una versione semplificata della proposta di Haber e Stornetta, i documenti vengono costantemente creati e trasmessi. Il creatore di ogni documento dichiara un 
+tempo di creazione e firma il documento, il suo timestamp e il documento trasmesso in precedenza. Questo documento precedente ha firmato il suo predecessore, 
+quindi i documenti formano una lunga catena con puntatori indietro nel tempo. Un utente esterno non può modificare un messaggio con data e ora poiché è firmato 
+dal creatore e il creatore non può modificare il messaggio senza alterare anche l'intera catena di messaggi che segue. Pertanto, se ti viene fornito un singolo 
+elemento della catena da una fonte attendibile (ad esempio, un altro utente o un servizio di timestamp specializzato), l'intera catena fino a quel punto è bloccata,
+immutabile e ordinata temporalmente. Ulteriore, se si presume che il sistema rifiuti i documenti con orari di creazione errati, si può essere ragionevolmente certi 
+che i documenti siano vecchi almeno quanto affermano di essere. In ogni caso, bit-coin prende in prestito solo la struttura dei dati dal lavoro di Haber e 
+Stornetta e riprogetta le sue proprietà di sicurezza con l'aggiunta dello schema di prova del lavoro descritto più avanti in questo articolo.
+
+Nei loro documenti di follow-up, Haber e Stornetta hanno introdotto altre idee che rendono questa struttura di dati più efficace ed efficiente (alcune delle 
+quali sono state accennate nel loro primo articolo). In primo luogo, è possibile creare collegamenti tra documenti utilizzando hash anziché firme; gli hash sono 
+più semplici e veloci da calcolare. Tali collegamenti sono chiamati puntatori hash. In secondo luogo, invece di raggruppare i documenti individualmente, cosa che 
+potrebbe essere inefficiente se molti documenti vengono creati approssimativamente allo stesso tempo, possono essere raggruppati in batch o blocchi, con i 
+documenti in ciascun blocco che hanno essenzialmente la stessa marca temporale. Terzo, all'interno di ogni blocco, i documenti possono essere collegati insieme a 
+un albero binario di puntatori hash, chiamato albero Merkle, piuttosto che una catena lineare. Per inciso, Josh Benaloh e Michael de Mare hanno introdotto 
+indipendentemente tutte e tre queste idee nel 1991,6 subito dopo il primo intervento di Haber e Stornetta.
+
+| Merkle Tree |
+
+Bitcoin utilizza essenzialmente la struttura dei dati nei documenti del 1991 e del 1997 di Haber e Stornetta, Nakamoto era presumibilmente ignaro del lavoro di 
+Benaloh e de Mare. Ovviamente in bitcoin le transazioni prendono il posto dei documenti. 
+
+Nel Merkle Tree di ogni blocco, i nodi foglia sono transazioni e ogni nodo interno consiste essenzialmente di due puntatori. Questa struttura dati ha due 
+proprietà importanti. Innanzitutto, l'hash dell'ultimo blocco funge da digest. Una modifica a una qualsiasi delle transazioni (nodi foglia) richiederà la 
+propagazione delle modifiche fino alla radice del blocco e alle radici di tutti i blocchi successivi. Pertanto, se conosci l'ultimo hash, puoi scaricare il resto 
+del libro mastro da una fonte non attendibile e verificare che non sia cambiato. Un argomento simile stabilisce un'altra importante proprietà della struttura dei 
+dati, ovvero qualcuno può dimostrarti in modo efficiente che una particolare transazione è inclusa nel libro mastro. Questo utente dovrebbe inviarti solo un 
+piccolo numero di nodi nel blocco di quella transazione (questo è il punto dell'albero Merkle), così come una piccola quantità di informazioni per ogni blocco 
+successivo. La capacità di dimostrare in modo efficiente l'inclusione delle transazioni è altamente desiderabile per le prestazioni e la scalabilità.
+
+I Merkle Tree, tra l'altro, prendono il nome da Ralph Merkle, un pioniere della crittografia asimmetrica che propose l'idea nel suo articolo del 1980. 
+33 La sua applicazione era quella di produrre un sommario per un elenco pubblico di certificati digitali. Quando un sito Web, ad esempio, ti presenta un 
+certificato, potrebbe anche presentare una breve prova che il certificato appare nella directory globale. È possibile verificare in modo efficiente la prova 
+purché si conosca l'hash radice dell'albero Merkle dei certificati nella directory. Questa idea è antica per gli standard crittografici, ma il suo potere è stato 
+apprezzato solo di recente. È al centro del sistema di trasparenza dei certificati recentemente implementato. 30Un documento del 2015 propone CONIKS, che applica 
+l'idea alle directory di chiavi pubbliche per le e-mail crittografate end-to-end. 32 Una verifica efficiente di parti dello stato globale è una delle funzionalità 
+chiave fornite dal libro mastro in Ethereum, una nuova criptovaluta.
+
+Bitcoin potrebbe essere l'istanza più nota nel mondo reale delle strutture dati di Haber e Stornetta, ma non è la prima. Almeno due societàSurety a partire dalla 
+metà degli anni '90 e Guardtime a partire dal 2007 offrono servizi di marcatura temporale dei documenti. Una svolta interessante presente in entrambi questi 
+servizi è un'idea menzionata da Bayer, Haber e Stornetta, 5 che è quella di pubblicare periodicamente le radici di Merkle in un giornale tirando fuori un annuncio. 
+La figura 3 mostra una radice Merkle pubblicata da Guardtime.
+
+
+Naturalmente, i requisiti per una valuta Internet senza un'autorità centrale sono più rigorosi. Un libro mastro distribuito avrà 
+inevitabilmente fork, il che significa che alcuni nodi penseranno che il blocco A sia l'ultimo blocco, mentre altri nodi penseranno che sia il blocco B. 
+Ciò potrebbe essere dovuto a un avversario che cerca di interrompere il funzionamento del libro mastro o semplicemente a causa della rete latenza, con il risultato 
+che i blocchi vengono occasionalmente generati quasi simultaneamente da diversi nodi ignari dei blocchi reciproci. Il timestamp collegato da solo non è sufficiente 
+per risolvere i fork, come è stato dimostrato da Mike Just nel 1998.
+
+Un campo di ricerca diverso, il calcolo distribuito a tolleranza di errore, ha studiato questo problema, dove va con nomi diversi, inclusa la replica dello stato. 
+Una soluzione a questo problema è quella che consente a un insieme di nodi di applicare le stesse transizioni di stato nello stesso ordine tipicamente, l'ordine 
+preciso non ha importanza, solo che tutti i nodi sono coerenti. Per una valuta digitale, lo stato da replicare è l'insieme dei saldi e le transazioni sono 
+transizioni di stato. Le prime soluzioni, tra cui Paxos, proposte dal vincitore del Turing Award Leslie Lamport nel 1989, 28 , 29considerare la replica dello stato
+quando i canali di comunicazione sono inaffidabili e quando una minoranza di nodi può mostrare alcuni errori "realistici", come andare offline per sempre o 
+riavviare e inviare messaggi obsoleti dalla prima volta che è andato offline. È seguita una prolifica letteratura con impostazioni più sfavorevoli e compromessi 
+di efficienza.
+
+Una linea di lavoro correlata ha studiato la situazione in cui la rete è per lo più affidabile (i messaggi vengono consegnati con un ritardo limitato), ma in cui 
+la definizione di "guasto" è stata ampliata per gestire qualsiasi deviazione dal protocollo. Tali difetti bizantini includono sia difetti naturali che 
+comportamenti maliziosi. Essi sono stati studiati prima in un documento anche da Lamport, cowritten con Robert Shostak e Marshall Pease, come già nel 1982. 
+27 Molto più tardi, nel 1999, un punto di riferimento della carta da Miguel Castro e Barbara Liskov introdotto pratica la tolleranza ai guasti bizantina (PBFT), 
+che accolse sia le faglie bizantine che una rete inaffidabile. 8 Rispetto al timestamping collegato, la letteratura sulla tolleranza ai guasti è enorme e include 
+centinaia di varianti e ottimizzazioni di Paxos, PBFT e altri protocolli seminali.
+
+Praticamente tutti i sistemi a tolleranza di errore presumono che la maggioranza o la maggior parte dei nodi del sistema siano onesti e affidabili.
+
+Nel suo white paper originale, Nakamoto non cita questa letteratura né usa il suo linguaggio. Usa alcuni concetti, riferendosi al suo protocollo come un meccanismo
+di consenso e considerando i guasti sia sotto forma di attaccanti, sia come nodi che si uniscono e escono dalla rete. Ciò è in contrasto con il suo esplicito 
+affidamento sulla letteratura relativa alla marcatura temporale collegata (e alla prova del lavoro, come vedremo). Quando è stato chiesto in una discussione in una 
+mailing list sulla relazione di bitcoin con il problema dei generali bizantini (un esperimento mentale che richiede la risoluzione di BFT), Nakamoto afferma che la 
+catena di prove di lavoro risolve questo problema.
+
+Negli anni successivi, altri accademici hanno studiato il consenso di Nakamoto dal punto di vista dei sistemi distribuiti. Questo è ancora un lavoro in corso. 
+Alcuni mostrano che le proprietà di bitcoin sono piuttosto deboli, 45 mentre altri sostengono che la prospettiva BFT non rende giustizia alle proprietà di 
+consistenza del bitcoin. 41 Un altro approccio consiste nel definire varianti di proprietà ben studiate e dimostrare che il bitcoin le soddisfa. Recentemente queste
+definizioni sono state notevolmente migliorate per fornire una definizione di coerenza più standard che si applica a ipotesi più realistiche sulla consegna dei 
+messaggi. 37Tutto questo lavoro, tuttavia, fa ipotesi sul comportamento "onesto", cioè conforme al procotolo, tra un sottogruppo di partecipanti, mentre Nakamoto 
+suggerisce che il comportamento onesto non deve essere assunto ciecamente, perché è incentivato. Un'analisi più ricca del consenso di Nakamoto che tiene conto del 
+ruolo degli incentivi non si adatta perfettamente ai modelli passati di sistemi a tolleranza di errore.
+
+| Proof of Work |
+
+Praticamente tutti i sistemi a tolleranza di errore presumono che una stretta maggioranza o supermaggioranza (ad esempio, più della metà o due terzi) dei nodi del 
+sistema sia onesta e affidabile. In una rete peer-to-peer aperta, i nodi non sono registrati e si uniscono e se ne vanno liberamente. Quindi un avversario può 
+creare abbastanza Sybils , o nodi sockpuppet, per superare le garanzie di consenso del sistema. L'attacco Sybil è stato formalizzato nel 2002 da John Douceur, che 
+si è rivolto a una costruzione crittografica chiamata proof of work per mitigarlo.
+
+Le origini. Per comprendere la prova di lavoro, passiamo alle sue origini. La prima proposta che oggi si chiamerebbe prova di lavoro è stata creata nel 1992 da 
+Cynthia Dwork e Moni Naor. 15Il loro obiettivo era scoraggiare lo spam. Si noti che spam, attacchi Sybil e denial of service sono tutti problemi più o meno simili 
+in cui l'avversario amplifica la sua influenza nella rete rispetto agli utenti regolari; la prova del lavoro è applicabile come difesa contro tutti e tre. 
+Nella progettazione di Dwork e Naor, i destinatari di posta elettronica avrebbero elaborato solo quei messaggi di posta elettronica che erano accompagnati dalla 
+prova che il mittente aveva eseguito una moderata quantità di lavoro computazionale, "prova di lavoro". Il calcolo della prova richiederebbe forse alcuni secondi 
+su un normale computer. Pertanto, non rappresenterebbe alcuna difficoltà per gli utenti regolari, ma uno spammer che desidera inviare un milione di messaggi di 
+posta elettronica richiederebbe diverse settimane, utilizzando un hardware equivalente.
+
+Tieni presente che l' istanza di prova del lavoro (chiamata anche puzzle) deve essere specifica per l'e-mail, nonché per il destinatario. In caso contrario, uno 
+spammer sarebbe in grado di inviare più messaggi allo stesso destinatario (o lo stesso messaggio a più destinatari) al costo di un messaggio a un destinatario. 
+La seconda proprietà cruciale è che dovrebbe comportare un carico computazionale minimo per il destinatario; le soluzioni dei puzzle dovrebbero essere banali da 
+verificare, indipendentemente da quanto siano difficili da calcolare. Inoltre, Dwork e Naor hanno considerato le funzioni con una botola, un segreto noto a 
+un'autorità centrale che consentirebbe all'autorità di risolvere gli enigmi senza svolgere il lavoro. Una possibile applicazione di una botola sarebbe per 
+l'autorità di approvare l'inserimento nelle mailing list senza incorrere in un costo. La proposta di Dwork e Naor consisteva in tre enigmi candidati che 
+incontravano le loro proprietà e dava il via a un intero campo di ricerca, sul quale torneremo.
+
+| Hashcash |
+
+Un'idea molto simile chiamata hashcash è stata inventata in modo indipendente nel 1997 da Adam Back, un ricercatore post-dottorato all'epoca che faceva parte della
+comunità cypherpunk. I cypher-punk erano attivisti che si opponevano al potere dei governi e delle istituzioni centralizzate e cercavano di creare un cambiamento 
+sociale e politico attraverso la crittografia. Back era praticamente orientato: ha rilasciato hashcash prima come software, 2 e cinque anni dopo nel 2002 ha 
+pubblicato una bozza Internet (un documento di standardizzazione) e un documento.
+
+Hashcash è molto più semplice dell'idea di Dwork e Naor: non ha botola né autorità centrale e utilizza solo funzioni hash invece delle firme digitali. 
+Si basa su un semplice principio: una funzione hash si comporta come una funzione casuale per alcuni scopi pratici, il che significa che l'unico modo per trovare 
+un input che ha un hash su un particolare output è provare vari input finché uno non produce l'output desiderato. Inoltre, l'unico modo per trovare un input che 
+esegue l' hashing in un insieme arbitrario di output è di nuovo provare a eseguire l'hashing di input diversi uno per uno. Quindi, se ti sfidassi a trovare un 
+input il cui valore hash (binario) inizia con 10 zeri, dovresti provare numerosi input e scopriresti che ogni output aveva un 1/2 10possibilità di iniziare con 
+10 zeri, il che significa che dovresti provare nell'ordine di 2 10 input o circa 1.000 calcoli hash.
+
+Come suggerisce il nome, in hashcash Back ha visto la prova del lavoro come una forma di denaro. Sulla sua pagina web lo ha posizionato come alternativa al DigiCash
+di David Chaum, che era un sistema che emetteva denaro digitale non rintracciabile da una banca a un utente. 3 Ha anche fatto dei compromessi sul design tecnico 
+per farlo sembrare più cashlike. Successivamente, Back ha fatto commenti suggerendo che il bit-coin fosse una semplice estensione di hashcash. 
+Hashcash semplicemente non è denaro, tuttavia, perché non ha alcuna protezione contro la doppia spesa. I token hashcash non possono essere scambiati tra pari.
+
+Nel frattempo, nella scena accademica, i ricercatori hanno trovato molte applicazioni per la prova del lavoro oltre allo spam, come la prevenzione di attacchi 
+denial-of-service, 25 per garantire l'integrità dell'analisi dei dati web, 17 e la limitazione della velocità di indovinare password online. 38 Per inciso, il 
+termine prova del lavoro è stato coniato solo nel 1999 in un articolo di Markus Jakobsson e Ari Juels, che include anche una bella rassegna del lavoro fino a quel 
+momento. 24 Vale la pena notare che questi ricercatori sembrano non essere a conoscenza dell'hashcash ma hanno iniziato a convergere in modo indipendente sulla 
+prova di lavoro basata sull'hash, che è stata introdotta negli articoli di Eran Gabber et al. 18 e da Juels e Brainard. 25(Molti dei termini usati in questo 
+paragrafo non sono diventati terminologia standard fino a molto tempo dopo la pubblicazione degli articoli in questione).
+
+Prova di lavoro e denaro digitale: un trucco-22. Potresti sapere che la prova del lavoro non è riuscita nella sua applicazione originale come misura anti-spam. 
+Una possibile ragione è la notevole differenza nella velocità di risoluzione dei puzzle di diversi dispositivi. Ciò significa che gli spammer potranno fare un 
+piccolo investimento in hardware personalizzato per aumentare il loro tasso di spam di ordini di grandezza. In economia, la risposta naturale a un'asimmetria nel 
+costo di produzione è quella commerciale, cioè un mercato per soluzioni di prova del lavoro. Ma questo presenta un problema, perché richiederebbe una valuta 
+digitale funzionante. In effetti, la mancanza di una tale valuta è una parte importante della motivazione per la prova del lavoro in primo luogo. 
+Una soluzione grossolana a questo problema è dichiarare che le soluzioni dei puzzle sono contanti, come hashcash cerca di fare.
+
+Approcci più coerenti per trattare le soluzioni di puzzle come denaro contante si trovano in due saggi che hanno preceduto bit-coin, descrivendo idee chiamate 
+rispettivamente b-money 13 e bit gold 43 . Queste proposte offrono servizi di marcatura temporale che firmano la creazione (attraverso la prova del lavoro) di 
+denaro e, una volta creato il denaro, firmano i trasferimenti. Se il disaccordo sul libro mastro si verifica tra i server o i nodi, tuttavia, non esiste un modo 
+chiaro per risolverlo. Lasciare che la maggioranza decida sembra essere implicito negli scritti di entrambi gli autori, ma a causa del problema Sybil, questi 
+meccanismi non sono molto sicuri, a meno che non ci sia un gatekeeper che controlla l'ingresso nella rete o la resistenza Sybil stessa si ottiene con la prova del 
+lavoro.
+
+Comprendere tutti questi predecessori che contengono pezzi del design di bitcoin porta ad apprezzare il vero genio dell'innovazione di Nakamoto. In bitcoin, 
+per la prima volta, le soluzioni puzzle non costituiscono da sole denaro contante. Invece, sono semplicemente usati per proteggere il libro mastro. 
+La risoluzione della prova del lavoro viene eseguita da entità specializzate chiamate minatori (sebbene Nakamoto abbia sottovalutato quanto sarebbe diventato il 
+mining specializzato).
+
+I miners sono costantemente in gara tra loro per trovare la prossima soluzione del puzzle; ogni minatore risolve una variante leggermente diversa del puzzle in 
+modo che la possibilità di successo sia proporzionale alla frazione della potenza mineraria globale controllata dal minatore. Un minatore che risolve un enigma può 
+contribuire al lotto successivo, o blocco, di transazioni al libro mastro, che si basa sul timestamp collegato. In cambio del servizio di mantenimento del libro 
+mastro, un minatore che contribuisce con un blocco viene ricompensato con nuove unità di valuta coniate. Con alta probabilità, se un minatore contribuisce con una 
+transazione o un blocco non valido, verrà rifiutato dalla maggior parte degli altri minatori che contribuiscono con i seguenti blocchi e ciò invaliderà anche la 
+ricompensa del blocco per il blocco danneggiato. In questo modo, a causa degli incentivi monetari, i minatori si assicurano a vicenda".
+
+Bitcoin evita ordinatamente il problema della doppia spesa che affligge gli schemi proof-of-work-as-cash perché evita le soluzioni enigmatiche stesse che hanno 
+valore. In effetti, le soluzioni puzzle sono due volte disaccoppiate dal valore economico: la quantità di lavoro richiesta per produrre un blocco è un parametro 
+fluttuante (proporzionale alla potenza di mining globale) e, inoltre, il numero di bitcoin emessi per blocco non è fisso. 
+La ricompensa del blocco (che è il modo in cui vengono coniati i nuovi bitcoin) è impostata per dimezzarsi ogni quattro anni (nel 2017, la ricompensa è 
+di 12,5 bitcoin / blocco, in calo da 50 bitcoin / blocco). Bit-coin incorpora schemenammente una ricompensa aggiuntiva, mittenti di transazioni che pagano minatori 
+per il servizio di includere la transazione nei loro blocchi. Si prevede che il mercato determinerà le commissioni di transazione e i premi dei minatori.
+
+Il genio di Nakamoto, quindi, non era nessuno dei singoli componenti di bitcoin, ma piuttosto il modo intricato in cui si incastrano per dare vita al sistema. 
+I ricercatori del timestamping e dell'accordo bizantino non hanno avuto l'idea di incentivare i nodi ad essere onesti, né, fino al 2005, di utilizzare la prova del 
+lavoro per eliminare le identità. Al contrario, gli autori di hashcash, b-money e bit gold non hanno incorporato l'idea di un algoritmo di consenso per prevenire la
+doppia spesa. In bitcoin, è necessario un libro mastro sicuro per prevenire la doppia spesa e quindi garantire che la valuta abbia valore. È necessaria una valuta 
+preziosa per premiare i minatori. A sua volta, la forza della potenza mineraria è necessaria per garantire il libro mastro. Senza esso, un avversario potrebbe 
+accumulare oltre il 50% della potenza di mining globale e quindi essere in grado di generare blocchi più velocemente del resto della rete, effettuare transazioni 
+a doppia spesa e riscrivere efficacemente la cronologia, scavalcando il sistema. Pertanto, il bitcoin viene avviato con il bootstrap, con una dipendenza circolare 
+tra questi tre componenti. La sfida di Nakamoto non era solo il design, ma anche convincere la comunità iniziale di utenti e minatori a fare un salto insieme 
+nell'ignoto, quando una pizza costava 10.000 bitcoin e la potenza di mining della rete era inferiore a un trilionesimo di quella che è oggi.
+
+Chiavi pubbliche come identità. Questo articolo è iniziato con la consapevolezza che un libro mastro sicuro semplifica la creazione di valuta digitale. 
+Rivisitiamo questa affermazione. Quando Alice desidera pagare Bob, trasmette la transazione a tutti i nodi bitcoin. Una transazione è semplicemente una stringa: 
+un'istruzione che codifica il desiderio di Alice di pagare un valore a Bob, firmata da lei. L'eventuale inclusione di questa dichiarazione firmata nel libro mastro 
+da parte dei minatori è ciò che rende reale la transazione. Nota che questo non richiede in alcun modo la partecipazione di Bob. Ma concentriamoci su ciò che non 
+lo ènella transazione: vistosamente assenti sono le identità di Alice e Bob; la transazione contiene invece solo le rispettive chiavi pubbliche. 
+Questo è un concetto importante in bitcoin: le chiavi pubbliche sono gli unici tipi di identità nel sistema. Le transazioni trasferiscono valore da e verso chiavi 
+pubbliche, chiamate indirizzi.
+
+Per "parlare per" un'identità, è necessario conoscere la chiave segreta corrispondente. È possibile creare una nuova identità in qualsiasi momento generando una 
+nuova coppia di chiavi, senza un'autorità centrale o un registro. Non è necessario ottenere un nome utente o informare gli altri che hai scelto un nome particolare.
+Questa è la nozione di gestione dell'identità decentralizzata. Bitcoin non specifica come Alice dice a Bob qual è il suo pseudonimo esterno al sistema.
+
+Sebbene radicalmente diverse dalla maggior parte degli altri sistemi di pagamento odierni, queste idee sono piuttosto antiche, risalenti a David Chaum, il padre 
+del denaro digitale. In effetti, Chaum ha anche dato contributi seminali alle reti di anonimato, ed è in questo contesto che ha inventato questa idea. 
+Nel suo articolo del 1981, "Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms" 9 , afferma: "Uno 'pseudonimo' digitale è una chiave pubblica 
+usata per verificare le firme fatte dal detentore anonimo della corrispondente chiave privata".
+
+Il termine blockchain non ha una definizione tecnica standard, ma è un termine generico usato da varie parti per riferirsi a sistemi che hanno diversi livelli di 
+somiglianza con bitcoin e il suo libro mastro.
+
+Ora, il fatto che i destinatari del messaggio siano conosciuti solo da una chiave pubblica presenta un problema ovvio: non c'è modo di instradare il messaggio al 
+computer giusto. Ciò porta a una massiccia inefficienza nella proposta di Chaum, che può essere scambiata con il livello di anonimato ma non eliminata. 
+Bitcoin è allo stesso modo estremamente inefficiente rispetto ai sistemi di pagamento centralizzati: il libro mastro contenente ogni transazione è mantenuto da 
+ogni nodo del sistema. Bitcoin subisce comunque questa inefficienza per motivi di sicurezza, e quindi ottiene lo pseudonimato (cioè le chiavi pubbliche come 
+identità) "gratuitamente". Chaum portò queste idee molto più in là in un documento del 1985 11 , dove presenta una visione di e-commerce che preserva la privacy 
+basata su pseudonimi diffusi, nonché "firme cieche",
+
+L'idea delle chiavi pubbliche come identità è vista anche in b-money e bit gold, i due saggi precursori del bitcoin discussi in precedenza. Tuttavia, gran parte 
+del lavoro che si è sviluppato sulle fondamenta di Chaum, così come il successivo lavoro di Chaum su ecash, si è allontanato da questa idea. I cypherpunk erano 
+vivamente interessati alla comunicazione e al commercio che preservassero la privacy e abbracciarono gli pseudonimi, che chiamarono nimi. Ma per loro, i nomi non 
+erano mere identità crittografiche (cioè chiavi pubbliche), ma piuttosto, di solito, indirizzi e-mail che erano collegati a chiavi pubbliche. Allo stesso modo, la 
+dissertazione di Ian Goldberg, che divenne la base di molti lavori futuri sulla comunicazione anonima, riconosce l'idea di Chaum ma suggerisce che i nimi dovrebbero
+essere soprannomi memorabili dall'uomo con certificati per vincolarli. 20 Così Bitcoin si è rivelato l'istanza di maggior successo dell'idea di Chaum.
+
+ | La Blockchain |
+
+Finora, questo articolo non ha affrontato la blockchain, che, se credi al clamore, è l'invenzione principale di bitcoin. Potrebbe sorprenderti che Nakamoto non 
+menzioni affatto quel termine. In effetti, il termine blockchain non ha una definizione tecnica standard, ma è un termine generico usato da varie parti per 
+riferirsi a sistemi che hanno diversi livelli di somiglianza con bit-coin e il suo libro mastro.
+
+Discutere di applicazioni di esempio che beneficiano di una blockchain aiuterà a chiarire i diversi usi del termine. Innanzitutto, si consideri un database 
+back-end per le transazioni tra un consorzio di banche, in cui le transazioni vengono compensate alla fine di ogni giornata e i conti vengono regolati dalla banca 
+centrale. Un tale sistema ha un numero limitato di parti ben identificate, quindi il consenso di Nakamoto sarebbe eccessivo. Non è nemmeno necessaria una valuta su 
+blockchain, poiché i conti sono denominati in valuta tradizionale. La marcatura temporale collegata, d'altra parte, sarebbe chiaramente utile, almeno per garantire
+un ordinamento globale coerente delle transazioni a fronte della latenza di rete. Sarebbe utile anche la replica dello stato: una banca saprebbe che la sua copia 
+locale dei dati è identica a quella che la banca centrale utilizzerà per regolare il proprio conto.
+
+In secondo luogo, si consideri un'applicazione di gestione delle risorse come un registro di documenti che traccia la proprietà di titoli finanziari, immobili o 
+qualsiasi altra risorsa. L'utilizzo di una blockchain aumenterebbe l'interoperabilità e ridurrebbe le barriere all'ingresso. Vogliamo un registro dei documenti 
+sicuro e globale e, idealmente, uno che consenta la partecipazione del pubblico. Questo è essenzialmente ciò che i servizi di marcatura temporale 
+degli anni '90 e 2000 cercavano di fornire. Le blockchain pubbliche offrono un modo particolarmente efficace per raggiungere questo obiettivo oggi (i dati stessi 
+possono essere archiviati fuori catena, con solo i metadati archiviati in catena). Altre applicazioni beneficiano anche di un'astrazione di marcatura temporale o 
+"bacheca pubblica", in particolare il voto elettronico.
+
+Partiamo dall'esempio della gestione delle risorse. Supponi di voler eseguire operazioni di asset tramite la catena di blocchi e non semplicemente registrarle lì. 
+Ciò è possibile se l'asset viene emesso digitalmente sulla blockchain stessa e se la blockchain supporta gli smart contract. In questo caso, i contratti 
+intelligenti risolvono il problema del "scambio equo" di garantire che il pagamento venga effettuato se e solo se l'attività viene trasferita. Più in generale, i 
+contratti intelligenti possono codificare una logica di business complessa, a condizione che tutti i dati di input necessari (risorse, i loro prezzi e così via) 
+siano rappresentati sulla blockchain.
+
+Le blockchain sono spesso presentate come più sicure rispetto alle tradizionali affermazioni fuorvianti dei registri.
+
+Questa mappatura delle proprietà della blockchain alle applicazioni ci consente non solo di apprezzarne il potenziale, ma anche di iniettare la necessaria dose di 
+scetticismo. Innanzitutto, molte applicazioni proposte di blockchain, specialmente nel settore bancario, non utilizzano il consenso di Nakamoto. Piuttosto, usano 
+la struttura dei dati del libro mastro e l'accordo bizantino, che, come mostrato, risalgono agli anni '90. Ciò smentisce l'affermazione che le blockchain siano 
+una tecnologia nuova e rivoluzionaria. Invece, il brusio intorno alle blockchain ha aiutato le banche ad avviare un'azione collettiva per implementare la tecnologia
+del libro mastro condiviso, come la parabola della "zuppa di pietra". Bitcoin è anche servito come una prova del concetto altamente visibile che il libro mastro 
+decentralizzato funziona e il progetto Bitcoin Core ha fornito una comoda base di codice che può essere adattata secondo necessità.
+
+In secondo luogo, le blockchain sono spesso presentate come più sicure dei tradizionali registri, un'affermazione fuorviante. Per capire perché, la stabilità 
+complessiva del sistema o della piattaforma deve essere separata dalla sicurezza degli endpoint, ovvero dalla sicurezza degli utenti e dei dispositivi. È vero, il 
+rischio sistemico delle blockchain può essere inferiore a quello di molte istituzioni centralizzate, ma il rischio per la sicurezza degli endpoint delle blockchain
+è di gran lunga peggiore del rischio corrispondente delle istituzioni tradizionali. Le transazioni a catena di blocchi sono quasi istantanee, irreversibili e, 
+nelle catene di blocchi pubbliche, anonime per progettazione. Con un registro delle azioni basato su blockchain, se un utente (o un broker o un agente) perde il 
+controllo delle proprie chiavi private, il che non richiede altro che perdere un telefono o ricevere malware su un computer, l'utente perde le proprie risorse. 
+La straordinaria storia degli hack, dei furti e dei furti di bitcoin39
+
+ | In conclusione |
+
+La storia qui descritta offre lezioni ricche (e complementari) per professionisti e accademici. I professionisti dovrebbero essere scettici sulle affermazioni di 
+tecnologia rivoluzionaria. Come mostrato qui, la maggior parte delle idee in bitcoin che hanno generato entusiasmo nell'impresa, come i registri distribuiti e 
+l'accordo bizantino, risalgono in realtà a 20 anni o più. Riconosci che il tuo problema potrebbe non richiedere alcuna svolta in quanto potrebbero esserci 
+soluzioni a lungo dimenticate nei documenti di ricerca.
+
+Il mondo accademico sembra avere il problema opposto, almeno in questo caso: una resistenza alle idee radicali ed estrinseche. Il white paper sui bitcoin, 
+nonostante il pedigree di molte delle sue idee, era più nuovo della maggior parte della ricerca accademica. Inoltre, Nakamoto non si curava della peer review 
+accademica e non la collegava completamente alla sua storia. Di conseguenza, gli accademici hanno sostanzialmente ignorato il bitcoin per diversi anni. 
+Molte comunità accademiche informale sostenuto che Bitcoin potrebbe non lavoro, sulla base di modelli teorici o esperienze con i sistemi del passato, nonostante 
+il fatto che è stato lavorato in pratica.
+
+Abbiamo visto più volte che le idee nella letteratura di ricerca possono essere gradualmente dimenticate o non essere apprezzate, soprattutto se sono in anticipo 
+sui tempi, anche in aree di ricerca popolari. Sia i professionisti che gli accademici farebbero bene a rivisitare vecchie idee per raccogliere intuizioni per i 
+sistemi attuali. Bitcoin era insolito e di successo non perché fosse all'avanguardia nella ricerca su uno qualsiasi dei suoi componenti, ma perché combinava vecchie
+idee da molti campi precedentemente non correlati. Questo non è facile da fare, poiché richiede il collegamento di terminologia, ipotesi e così via disparati, 
+ma è un modello prezioso per l'innovazione.
+
+I professionisti trarrebbero vantaggio dall'essere in grado di identificare la tecnologia sovrastimata. Alcuni indicatori di hype: difficoltà nell'individuare 
+l'innovazione tecnica; difficoltà a definire il significato di termini apparentemente tecnici, a causa delle aziende desiderose di allegare i propri prodotti al 
+carrozzone; difficoltà a identificare il problema che si sta risolvendo; e infine, affermazioni sulla tecnologia che risolve problemi sociali o crei sconvolgimenti
+economici / politici.
+
+Al contrario, il mondo accademico ha difficoltà a vendere le sue invenzioni. Ad esempio, è un peccato che i ricercatori originali della prova di lavoro non 
+ottengano alcun credito per bitcoin, forse perché il lavoro non era ben noto al di fuori dei circoli accademici. Attività come il rilascio del codice e il lavoro 
+con i professionisti non sono adeguatamente ricompensate nel mondo accademico. In effetti, il ramo originale della letteratura accademica sulla prova del lavoro 
+continua ancora oggi senza riconoscere l'esistenza del bitcoin! Interagire con il mondo reale non solo aiuta a ottenere credito, ma ridurrà anche la reinvenzione 
+ed è una fonte di nuove idee.
+
+Ringraziamenti. Grazie ad Adam Back, Andrew Miller, Edward Felten, Harry Kalodner, Ian Goldberg, Ian Grigg, Joseph Bonneau, Malte Möser, Mike Just, Neha Narula, 
+Steven Goldfeder e Stuart Haber per il loro prezioso feedback.
+
+
+Riferimenti
+1. Aspnes, J., et al. Esporre impostori bizantini con problemi di calcolo. Dipartimento di informatica della Yale University, 2005; http://cs.yale.edu/publications/techreports/tr1332.pdf .
+
+2. Indietro, A. Uno schema di affrancatura basato su collisioni di hash parziale, 1997; http://www.hashcash.org/papers/announce.txt .
+
+3. Indietro, A. Hash cash, 2001; https://web.archive.org/web/20010614013848/http://cypherspace.org/hashcash/ .
+
+4. Indietro, A. Hashcasha denial of service contromisura, 2002; http://www.hashcash.org/papers/hashcash.pdf .
+
+5. Bayer, D., Haber, S. e Stornetta, WS Miglioramento dell'efficienza e dell'affidabilità della marcatura temporale digitale. In Proceedings of Sequences (1991); https://link.springer.com/chapter/10.1007/978-1-4613-9323-8_24 .
+
+6. Benaloh, J., de Mare, M. Efficient broadcast timestamping, 1991; http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.38.9199.
+
+7. Boyle, TF GLT e GLR: architettura dei componenti per libri mastri, 1997; https://linas.org/mirrors/www.gldialtone.com/2001.07.14/GLT-GLR.htm .
+
+8. Castro, M. e Liskov, B. Practical Byzantine fault tolerance. In Proceedings of the Third Symposium on Operating Systems Design and Implementation (1999); http://pmg.csail.mit.edu/papers/osdi99.pdf .
+
+9. Chaum, D. Posta elettronica, indirizzi di restituzione e pseudonimi digitali non rintracciabili. Commun. ACM 24 , 2 (febbraio 1981), 8490; https://dl.acm.org/citation.cfm?id=358563 .
+
+10. Chaum, D. Firme cieche per pagamenti non rintracciabili. Advances in Cryptology , 1983, 199203.
+
+11. Chaum, D. Sicurezza senza identificazione: sistemi di transazione per rendere obsoleto il Grande Fratello. Commun ACM 28 , 10 (ottobre 1985), 10301044; https://dl.acm.org/citation.cfm?id=4373 .
+
+12. Chaum, D., et al. Contante elettronico non rintracciabile. Advances in Cryptology , 1988, 319327; https://dl.acm.org/citation.cfm?id=88969 .
+
+13. Dai, W. 1998; http://www.weidai.com/bmoney.txt.
+
+14. Douceur, JR L'attacco della Sibilla, 2002; https://dl.acm.org/citation.cfm?id=687813 .
+
+15. Dwork, C. e Naor, M. Determinazione del prezzo tramite l'elaborazione o la lotta alla posta indesiderata, 1992; https://dl.acm.org/citation.cfm?id=705669 .
+
+16. Felten, E. Contratti intelligenti: né intelligenti né contratti? Libertà di armeggiare, 2017; https://freedom-to-tinker.com/2017/02/20/smart-contracts-neither-smart-not-contracts/ .
+
+17. Franklin, MK e Malkhi, D. Misurazione verificabile e sicurezza leggera, 1997; http://www.hashcash.org/papers/auditable-metering.pdf .
+
+18. Gabber, E., et al. Curbing junk e-mail via secure classiffication, 1998; http://www.hashcash.org/papers/secure-classification.pdf.
+
+19. Garay, J A., et al. Il protocollo backbone bitcoin: analisi e applicazioni. Advances in Cryptology , 2015, 281310; https://eprint.iacr.org/2014/765.pdf .
+
+20. Goldberg, I. Un'infrastruttura di comunicazione pseudonima per Internet. Ph.D. dissertazione. Università della California Berkeley, 2000; http://moria.freehaven.net/anonbib/cache/ian-thesis.pdf .
+
+21. Grigg, I. Contabilità a partita tripla, 2005; http://iang.org/papers/triple_entry.html .
+
+22. Haber, S. e Stornetta, WS How to timestamp a digital document. J. Cryptology 3 , 2 (1991), 99111; https://link.springer.com/chapter/10.1007/3-540-38424-3_32 .
+
+23. Haber, S. e Stornetta, WS Nomi sicuri per stringhe di bit. In Proceedings of the 4th ACM Conference on Computer and Communications Security , 1997, 2835; http://dl.acm.org/citation.cfm?id=266430 .
+
+24. Jakobsson, M. e Juels, A. Proofs of work and bread pudding protocols, 1999; http://www.hashcash.org/papers/bread-pudding.pdf .
+
+25. Juels, A. e Brainard, J. Puzzle client: una contromisura crittografica contro gli attacchi di completamento della connessione. In Proceedings of Networks and Distributed Security Systems , 1999, 151165; https://www.isoc.org/isoc/conferences/ndss/99/proceedings/papers/juels.pdf .
+
+26. Solo, M. Alcuni errori del protocollo di marcatura temporale, 1998; http://www.isoc.org/isoc/conferences/ndss/98/just.pdf .
+
+27. Lamport, L., et al. Il problema dei generali bizantini. ACM Trans. Linguaggi e sistemi di programmazione 4 , 3 (1982), 382401; https://dl.acm.org/citation.cfm?id=357176 .
+
+28. Lamport, L. Il parlamento part-time. Digital Equipment Corp., 1989; https://computerarchive.org/files/mirror/www.bitsavers.org/pdf/dec/tech_reports/SRC-RR-49.pdf .
+
+29. Lamport, L. Paxos reso semplice, 2001; http://lamport.azurewebsites.net/pubs/paxos-simple.pdf .
+
+30. Laurie, B. Trasparenza del certificato. acmqueue 12 , 1 (2014); https://queue.acm.org/detail.cfm?id=2668154 .
+
+31. Levy, KEC Book-smart, not street-smart: smart contract blockchain and the social work of law. Engaging Science, Technology, and Society 3 (2017), 115; http://estsjournal.org/article/view/107 .
+
+32. Melara, M., et al. CONIKS: Portare la trasparenza delle chiavi agli utenti finali. In Proceedings of the 24th Usenix Security Symposium , 2015; https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-melara.pdf .
+
+33. Merkle, Protocolli RC per sistemi crittografici a chiave pubblica. In Proceedings of the IEEE Symposium on Security and Privacy , 1980; http://www.merkle.com/papers/Protocols.pdf .
+
+34. Nakamoto, S. Bitcoin: A peer-to-peer electronic cash system, 2008; https://bitcoin.org/bitcoin.pdf .
+
+35. Nakamoto, S. Re: Bitcoin P2P e-cash paper, 2008; http://satoshi.nakamotoinstitute.org/emails/cryptography/11/.
+
+36. Narayanan, A., et al. Tecnologie bitcoin e criptovaluta: un'introduzione completa. Princeton University Press, 2016; http://bitcoinbook.cs.princeton.edu/ .
+
+37. Pass, R., et al. Analisi del protocollo blockchain nelle reti asincrone. In Proceedings of the 2017 International Conference on the Theory and Applications of Cryptographic Techniques ; https://link.springer.com/chapter/10.1007/978-3-319-56614-6_22 .
+
+38. Pinkas, B. e Sander, T. Protezione delle password dagli attacchi del dizionario. In Proceedings of the Ninth ACM Conference on Computer and Communications Security , 2002, 161170; https://dl.acm.org/citation.cfm?id=586133 .
+
+39. Reuters. Attento al portafoglio: perché la malavita ama i bitcoin, 2014; http://www.cnbc.com/2014/03/14/mind-your-wallet-why-the-underworld-loves-bitcoin.html .
+
+40. Rivest, RL e Shamir, A. PayWord e MicroMint: due semplici schemi di micropagamento. In Atti del seminario internazionale del 1996 sui protocolli di sicurezza.
+
+41. Sirer, EG Bitcoin garantisce una coerenza forte, non finale. Hacking, distribuito , 2016; http://hackingdistributed.com/2016/03/01/bitcoin-guarantees-strong-not-eventual-consistency/ .
+
+42. Szabo, N. Smart contract, 1994; http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html .
+
+43. Szabo, N. Bit d'oro. Unenumerated, 2008; https://unenumerated.blogspot.com/2005/12/bit-gold.html .
+
+44. Vishnumurthy, S., Chandrakumar, S. e Sirer, EG Karma: A secure economuc framework for P2P resource sharing. In Proceedings of the Workshop on the Economics of Peer-to-Peer Systems (Berkeley, CA, giugno 2003).
+
+45. Wattenhofer, R. La scienza della Blockchain. Pubblicazione nella foresta invertita, 2016.
