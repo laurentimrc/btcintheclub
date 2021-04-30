@@ -1,12 +1,12 @@
 Sebbene molte delle innovazioni appaiano recenti, sono basate su decenni di lavoro che hanno portato a questo punto. 
 Tracciando questa storia, possiamo comprendere le motivazioni alla base del movimento che ha generato bitcoin e condividere la sua visione per il futuro.
 
-Dal bitcoin alla blockchain ai registri distribuiti, lo spazio delle criptovalute è in rapida evoluzione, al punto che può essere difficile vedere in quale 
-direzione si sta dirigendo.
+Dal bitcoin alla blockchain ai registri distribuiti, il mondo delle criptovalute è in rapida evoluzione, al punto che può essere difficile vedere in quale 
+direzione si stia dirigendo.
 
-Ma non siamo senza indizi. Sebbene molte delle innovazioni nello spazio siano nuove, sono basate su decenni di lavoro che 
-hanno portato a questo punto. Tracciando questa storia, possiamo comprendere le motivazioni alla base del movimento che ha generato bitcoin e condividere l
-a sua visione per il futuro.
+Ma non brancoliamo nel buio. Sebbene molte delle innovazioni nello spazio siano nuove, sono basate su decenni di lavoro che 
+hanno portato a questo punto. Tracciando questa storia, possiamo comprendere le motivazioni alla base del movimento che ha generato bitcoin e condividere 
+la sua visione per il futuro.
 
 Prima degli anni '70, la crittografia era principalmente praticata in segreto da agenzie militari o di spionaggio. Ma le cose sono cambiate quando due 
 pubblicazioni lo hanno portato allo scoperto: la pubblicazione del governo degli Stati Uniti del Data Encryption Standard e il primo lavoro disponibile 
@@ -30,7 +30,7 @@ l'argomento "niente da nascondere" deriva da una premessa errata che la privacy 
 Ad esempio, è probabile che tu abbia tende alle finestre in modo che le persone non possano vedere nella tua casa. Questo non è perché stai intraprendendo 
 attività illegali o immorali, ma semplicemente perché non desideri preoccuparti del potenziale costo di rivelarti al mondo esterno.
 
-Se stai leggendo questo, hai beneficiato direttamente degli sforzi dei Cypherpunks.
+Se stai leggendo questo, hai beneficiato direttamente degli sforzi dei Cypherpunks, o stai inziando per lo meno a rendertene conto.
 
 Alcuni importanti Cypherpunk e i loro successi:
 
@@ -47,12 +47,13 @@ Bruce Schneier: noto autore di sicurezza
 Zooko Wilcox-O'Hearn: sviluppatore DigiCash, fondatore di Zcash
 Philip Zimmermann: creatore di PGP 1.0
 
-Gli anni '90
+ | Gli anni '90 |
+ 
 Questo decennio ha visto l'ascesa delle Crypto Wars, in cui il governo degli Stati Uniti ha tentato di soffocare la diffusione di una forte crittografia 
 commerciale.
 
 Poiché il mercato della crittografia era quasi interamente militare fino a questo punto, la tecnologia di crittografia è stata inclusa come un elemento di 
-categoria XIII nell'elenco delle munizioni degli Stati Uniti, che aveva regole severe che ne impedivano l '"esportazione".
+categoria XIII nell'elenco delle "munizioni" degli Stati Uniti, che aveva regole severe che ne impedivano l'"esportazione".
 
 Questa lunghezza limitata della chiave SSL "compatibile con l'esportazione" a 40 bit, che potrebbe essere interrotta in pochi giorni utilizzando un singolo 
 personal computer.
@@ -61,7 +62,7 @@ Le sfide legali dei libertari civili e dei sostenitori della privacy, la diffusa
 attacco riuscito di Matt Blaze contro la backdoor proposta dal governo, il Clipper Chip , hanno portato il governo a fare marcia indietro.
 
 
-Nel 1997, il dottor Adam Back ha creato Hashcash , progettato come un meccanismo anti-spam che essenzialmente aggiungerebbe un costo (in termini di tempo e di 
+Nel 1997, il dottor Adam Back ha creato Hashcash, progettato come un meccanismo anti-spam che essenzialmente aggiungerebbe un costo (in termini di tempo e di 
 calcolo) all'invio di e-mail, rendendo così antieconomico lo spam.
 
 Ha immaginato che Hashcash sarebbe stato più facile da usare per le persone rispetto al digicash di Chaum poiché non era necessaria la creazione di un account. 
@@ -74,7 +75,7 @@ di partecipanti che sono incentivati a rimanere onesti mettendo i loro soldi in 
 
 Bitcoin utilizza il primo concetto mentre parecchie altre criptovalute hanno implementato una variante del secondo concetto, che ora chiamiamo proof of stake.
 
-Gli anni 2000
+ | Gli anni 2000 |
 
 È chiaro che i Cypherpunks si erano già basati sul lavoro degli altri per decenni, sperimentando e ponendo le strutture di cui avevamo bisogno negli anni '90, 
 ma un punto cruciale è stata la creazione di denaro cypherpunk negli anni 2000.
@@ -98,13 +99,15 @@ informazioni in un altro luogo: mantenendo anonime le chiavi pubbliche. Il pubbl
 ma senza informazioni che colleghino la transazione a nessuno. Questo è simile al livello di informazione rilasciato dalle borse, dove il tempo e la dimensione 
 delle singole operazioni, il "nastro", sono resi pubblici, ma senza dire chi fossero le parti ".
 
-Il modello di privacy di Bitcoin, dal white paper di Bitcoin
+| Il modello di privacy di Bitcoin, dal white paper di Bitcoin |
+
 Satoshi Nakamoto ha innescato una valanga di progresso con un sistema di lavoro che le persone potevano usare, estendere e biforcare.
 
 Bitcoin ha rafforzato l'intero movimento cypherpunk consentendo a organizzazioni come WikiLeaks di continuare a operare tramite donazioni di bitcoin, anche dopo 
 che il sistema finanziario tradizionale le aveva interrotte.
 
-La lotta per la privacy
+| La lotta per la privacy |
+
 Tuttavia, poiché l'ecosistema bitcoin è cresciuto negli ultimi anni, le preoccupazioni sulla privacy sembrano essere state messe in secondo piano.
 Molti dei primi utenti di bitcoin presumevano che il sistema avrebbe dato loro il completo anonimato, ma abbiamo imparato il contrario poiché varie forze 
 dell'ordine hanno rivelato di essere in grado di deanonimizzare gli utenti di bitcoin durante le indagini.
@@ -170,7 +173,7 @@ sofisticati potrebbero comunque essere in grado di deoffuscare le transazioni di
 Kristov Atlas (fondatore dell'Open Bitcoin Privacy Project) ha pubblicato le sue scoperte sui punti deboli dei clienti CoinJoin implementati in modo improprio nel 
 2014.
 
-CoinJoin raggruppamento di input e output
+ | CoinJoin raggruppamento di input e output |
 
 Atlas ha notato che anche con uno strumento di analisi abbastanza primitivo, è stato in grado di raggruppare il 69% degli input e il 53% degli output di una 
 singola transazione CoinJoin. Esistono anche criptovalute separate che sono state sviluppate pensando alla privacy.
@@ -184,7 +187,7 @@ In ogni sessione di missaggio, gli utenti inviano le stesse denominazioni di inp
 Per massimizzare la privacy offerta dal missaggio e rendere più difficili gli attacchi a tempo, Darksend viene eseguito automaticamente a intervalli prestabiliti.
 
 
-Miscelazione DASH. Fonte: white paper DASH
+| "Miscelazione" DASH. Fonte: white paper DASH |
 
 Un'altra criptovaluta incentrata sulla privacy non è nemmeno basata su bitcoin. Il white paper CryptoNote è stato pubblicato nel 2014 da Nicolas van Saberhagen 
 e il concetto è stato implementato in diverse criptovalute come Monero. Le innovazioni principali sono le firme ad anello crittografiche e le chiavi monouso 
@@ -192,7 +195,6 @@ univoche.
 
 Le firme digitali regolari, come quelle utilizzate in bitcoin, coinvolgono una singola coppia di chiavi: una pubblica e una privata. Ciò consente al proprietario 
 di un indirizzo pubblico di dimostrare di possederlo firmando una spesa di fondi con la chiave privata corrispondente.
-
 
 Le firme ad anello sono state proposte per la prima volta nel 2001 dal dottor Adi Shamir e altri, basandosi sullo schema di firme di gruppo introdotto nel 1991 
 dal dottor Chaum ed Eugene van Heyst. Le firme ad anello coinvolgono un gruppo di individui, ciascuno con la propria chiave pubblica e privata.
@@ -223,7 +225,7 @@ Ogni transazione aumenta l'entropia e crea difficoltà aggiuntive per un osserva
 
 Resistenza all'analisi blockchain. Fonte: https://cryptonote.org/inside/
 
-Prossime innovazioni Cypherpunk
+ | Prossime innovazioni Cypherpunk |
 
 Sebbene ci siano ancora molti problemi di privacy per gli utenti di criptovaluta, il futuro è luminoso grazie al lavoro in corso di Cypherpunks. Il prossimo balzo 
 in avanti nella privacy comporterà l'uso di prove a conoscenza zero, che furono proposte per la prima volta nel 1985 al fine di ampliare le potenziali applicazioni 
@@ -259,7 +261,7 @@ Zcash utilizza una costruzione a prova di conoscenza zero chiamata zk-SNARK, svi
 l'autorità di spesa e i valori della transazione, i metadati della transazione vengono crittografati e gli zk-SNARK vengono utilizzati per dimostrare che la 
 transazione è valida. Zcash potrebbe benissimo essere il primo sistema di pagamento digitale che consente un anonimato infallibile.
 
-Mettere il punk in cypherpunk
+ | Mettere il punk in cypherpunk |
 
 Nei decenni trascorsi da quando i Cypherpunk hanno intrapreso la loro ricerca, la tecnologia informatica è avanzata al punto in cui individui e gruppi possono 
 comunicare e interagire tra loro in modo totalmente anonimo.
