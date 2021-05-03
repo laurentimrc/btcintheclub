@@ -1,31 +1,40 @@
-Se hai letto di bitcoin sulla stampa e hai una certa familiarità con la ricerca accademica nel campo della crittografia, potresti ragionevolmente ottenere 
-la seguente impressione: diversi decenni di ricerca sul denaro digitale, a cominciare da David Chaum, 10 , 12 non ha portato al successo commerciale perché 
-richiedeva un server centralizzato simile a una banca che controllasse il sistema e nessuna banca voleva registrarsi. Poi è arrivato bitcoin, una proposta 
-radicalmente diversa per una criptovaluta decentralizzata che non aveva bisogno delle banche, e il denaro digitale ha finalmente avuto successo. 
-Il suo inventore, il misterioso Satoshi Nakamoto, era un outsider accademico e il bitcoin non ha alcuna somiglianza con le precedenti proposte accademiche.
+# Bitcoin in Parole Semplici
 
-Questo articolo contesta tale vista mostrando quasi tutti i componenti tecnici bitcoin origine nella letteratura accademica degli anni 1980 e 1990. 
-Questo non per sminuire il risultato di Nakamoto, ma per sottolineare che si trovava sulle spalle dei giganti. 
-In effetti, tracciando le origini delle idee in bitcoin, possiamo concentrarci sul vero salto di intuizione di Nakamoto sul modo specifico e complesso in cui i 
-componenti sottostanti sono messi insieme. Questo aiuta a spiegare perché il bitcoin ha impiegato così tanto tempo per essere inventato. I lettori che hanno già 
-familiarità con il funzionamento di bitcoin possono ottenere una comprensione più profonda da questa presentazione storica. (Per un'introduzione, vedere Bitcoin 
-e criptovaluta Technologies. 36) La storia intellettuale di Bitcoin funge anche da caso di studio che dimostra le relazioni tra il mondo accademico, i ricercatori 
-esterni e i professionisti e offre lezioni su come questi gruppi possono trarre vantaggio gli uni dagli altri.
+## Introduzione
+Se hai letto di *Bitcoin* sulla stampa ma non hai una certa familiarità con la ricerca accademica nel campo della crittografia, potresti ragionevolmente pensare che il
+denaro digitale non sia nulla di nuovo, d'altronde nella vita di tutti i giorni abbiamo sempre a che fare con carte di pagamento di ogni genere, bonifici, giroconti
+e quant'altro fino ad arrivare a sistemi di pagamento online come *PayPal* o *SatisPay*. Tuttavia, tutte queste soluzioni richiedono un intermediario centralizzato 
+(una banca o qualcosa di simile) che controlla il sistema, i suoi utenti e in ultimo le interazioni tra essi. Difatti, la banca può stornare una transazione se lo ritiene
+opportuno oppure un bonifico potrebbe essere rigettato se supera una certa soglia di denaro in base a regolamenti interni che variano da banca a banca.
+Esempi di moneta virtuale differente, come quello proposto da David Chaum, non hanno mai avuto successo in quanto richiedevano all'istituto finanziario di rinunciare
+al controllo diretto sui fondi, delegando invece un ente centrale esterno.
+Poi è arrivato *Bitcoin*, una proposta radicalmente diversa per una criptovaluta decentralizzata che non aveva bisogno di banche o altri intermediari e il termine "denaro digitale" 
+ha finalmente avuto un senso. 
+Il suo inventore, il misterioso e anonimo utente conosciuto con il nickname *Satoshi Nakamoto*, probabilmente un outsider accademico, ha pubblicato nel 2009 una descrizione di un progetto
+di moneta virtuale denominata "Bitcoin" in netto contrasto con le precedenti proposte di valuta elettronica.
 
+Tuttavia, la narrazione classica che vede nel Bitcoin qualcosa di totalmente nuovo quando invece quasi tutti i componenti tecnici sono già menzionati in letteratura accademica fin 
+dagli anni '80.  Questo non per sminuire il risultato di Nakamoto, ma per sottolineare che si trovava sulle spalle dei giganti. 
+In effetti, tracciando le origini delle idee componenti del Bitcoin, possiamo concentrarci sul vero salto di intuizione di Nakamoto sul modo specifico e complesso in cui i 
+singoli elementi sono messi in relazione. Questo aiuta a spiegare perché qualcosa come il Bitcoin ha impiegato così tanto tempo per essere inventato. La storia intellettuale di Bitcoin funge 
+anche da caso di studio che dimostra le relazioni tra il mondo accademico, i ricercatori esterni e i professionisti e si presta come lezione su come gruppi così diversi tra loro
+possano trarre vantaggio gli uni dagli altri.
 
- | Il libro mastro |
+## Gli Attrezzi del Mestiere
 
-Se hai un libro mastro sicuro, il processo per sfruttarlo in un sistema di pagamento digitale è semplice. Ad esempio, se Alice invia a Bob $ 100 tramite PayPal, 
-PayPal addebita $ 100 dall'account di Alice e accredita $ 100 sull'account di Bob. Questo è più o meno ciò che accade nel settore bancario tradizionale, anche se 
-l'assenza di un unico registro condiviso tra le banche complica le cose.
+### Il libro mastro (blockchain)
 
-Questa idea di un libro mastro è il punto di partenza per comprendere il bitcoin. È un luogo in cui registrare tutte le transazioni che avvengono nel sistema ed è 
+Se hai un libro mastro sicuro, il processo per sfruttarlo in un sistema di pagamento digitale è semplice. Ad esempio, se Alice invia a Bob $100 tramite PayPal, 
+PayPal addebita $100 dall'account di Alice e accredita tale somma sull'account di Bob. Questo è più o meno ciò che accade nel settore bancario tradizionale, seppur se 
+l'assenza di un unico registro condiviso tra tutti gli istituti bancari complichi le cose.
+
+Questa idea di registro pubblico è il punto di partenza per comprendere il bitcoin. È un luogo in cui registrare tutte le transazioni che avvengono nel sistema ed è 
 aperto e considerato attendibile da tutti i partecipanti al sistema. Bitcoin converte questo sistema per registrare i pagamenti in una valuta. Mentre nel settore 
 bancario il saldo di un conto rappresenta denaro che può essere richiesto alla banca, cosa rappresenta un'unità di bitcoin? Per ora, supponi che ciò che viene 
 negoziato abbia un valore intrinsecamente.
 
-Come puoi costruire un libro mastro da utilizzare in un ambiente come Internet in cui i partecipanti potrebbero non fidarsi l'uno dell'altro? 
-Cominciamo con la parte facile: la scelta della struttura dei dati. Ci sono alcune proprietà desiderabili. Il libro mastro dovrebbe essere immutabile o, più 
+Come è possibile costruire un libro mastro da utilizzare in un ambiente frammentato come Internet, in cui i partecipanti potrebbero non fidarsi l'uno dell'altro? 
+Cominciamo con la parte facile: *la scelta della struttura dei dati*. Ci sono alcune proprietà desiderabili. Il libro mastro dovrebbe essere immutabile o, più 
 precisamente, solo aggiungere : dovresti essere in grado di aggiungere nuove transazioni ma non rimuovere, modificare o riordinare quelle esistenti. 
 Dovrebbe esserci anche un modo per ottenere un riassunto crittografico sinteticodello stato del libro mastro in qualsiasi momento. Un digest è una breve stringa 
 che consente di evitare di archiviare l'intero libro mastro, sapendo che se il libro mastro venisse manomesso in qualche modo, il digest risultante cambierebbe e 
@@ -34,7 +43,7 @@ il libro mastro è una struttura di dati globale gestita collettivamente da un i
 approccio alla decentralizzazione dei registri digitali, 7 , 13 , 21 in cui molti partecipanti mantengono i registri locali e spetta all'utente che interroga 
 questo insieme di registri risolvere eventuali conflitti.
 
- | Timestamp |
+### Un Francobollo fermo nel Tempo (timestamp)
 
 La struttura dei dati del registro di Bitcoin è presa in prestito, con modifiche minime, da una serie di articoli di Stuart Haber e Scott 
 Stornetta scritti tra il 1990 e il 1997 (il loro articolo del 1991 aveva un altro coautore, Dave Bayer). 5 , 22 , 23 Lo sappiamo perché lo dice Nakamoto nel suo 
@@ -60,7 +69,7 @@ documenti in ciascun blocco che hanno essenzialmente la stessa marca temporale. 
 un albero binario di puntatori hash, chiamato albero Merkle, piuttosto che una catena lineare. Per inciso, Josh Benaloh e Michael de Mare hanno introdotto 
 indipendentemente tutte e tre queste idee nel 1991,6 subito dopo il primo intervento di Haber e Stornetta.
 
-| Merkle Tree |
+### L'Albero dai Molti Rami (Merkle Tree)
 
 Bitcoin utilizza essenzialmente la struttura dei dati nei documenti del 1991 e del 1997 di Haber e Stornetta, Nakamoto era presumibilmente ignaro del lavoro di 
 Benaloh e de Mare. Ovviamente in bitcoin le transazioni prendono il posto dei documenti. 
