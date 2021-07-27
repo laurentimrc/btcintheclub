@@ -1,15 +1,15 @@
 # Bitcoin in Parole Semplici
 
 ## Introduzione
-Se hai letto di *Bitcoin* sulla stampa ma non hai una certa familiarità con la ricerca accademica nel campo della crittografia, potresti ragionevolmente pensare che il
-denaro digitale non sia nulla di nuovo, d'altronde nella vita di tutti i giorni abbiamo sempre a che fare con carte di pagamento di ogni genere, bonifici, giroconti
+Se hai letto di *Bitcoin* sulla stampa ma non hai una certa familiarità con la ricerca accademica nel campo della crittografia, potresti ragionevolmente pensare che
+il denaro digitale non sia nulla di nuovo, d'altronde nella vita di tutti i giorni abbiamo sempre a che fare con carte di pagamento di ogni genere, bonifici, giroconti
 e quant'altro fino ad arrivare a sistemi di pagamento online come *PayPal* o *SatisPay*. Tuttavia, tutte queste soluzioni richiedono un intermediario centralizzato 
-(una banca o qualcosa di simile) che controlla il sistema, i suoi utenti e in ultimo le interazioni tra essi. Difatti, la banca può stornare una transazione se lo ritiene
-opportuno oppure un bonifico potrebbe essere rigettato se supera una certa soglia di denaro in base a regolamenti interni che variano da banca a banca.
-Esempi di moneta virtuale differente, come quello proposto da David Chaum, non hanno mai avuto successo in quanto richiedevano all'istituto finanziario di rinunciare
-al controllo diretto sui fondi, delegando invece un ente centrale esterno.
-Poi è arrivato *Bitcoin*, una proposta radicalmente diversa per una criptovaluta decentralizzata che non aveva bisogno di banche o altri intermediari e il termine "denaro digitale" 
-ha finalmente avuto un senso. 
+(una banca o qualcosa di simile) che controlla il sistema, i suoi utenti e in ultimo le interazioni tra essi. Difatti, la banca può stornare una transazione se lo 
+ritiene opportuno oppure un bonifico potrebbe essere rigettato se supera una certa soglia di denaro in base a regolamenti interni che variano da banca a banca.
+Esempi di moneta virtuale differente, come quello proposto da David Chaum, non hanno mai avuto successo in quanto richiedevano all'istituto finanziario di 
+rinunciare al controllo diretto sui fondi, delegando invece un ente centrale esterno.
+Poi è arrivato *Bitcoin*, una proposta radicalmente diversa per una criptovaluta decentralizzata che non aveva bisogno di banche o altri intermediari e il termine
+"denaro digitale" ha finalmente avuto un senso. 
 Il suo inventore, il misterioso e anonimo utente conosciuto con il nickname *Satoshi Nakamoto*, probabilmente un outsider accademico, ha pubblicato nel 2009 una descrizione di un progetto
 di moneta virtuale denominata "Bitcoin" in netto contrasto con le precedenti proposte di valuta elettronica.
 
